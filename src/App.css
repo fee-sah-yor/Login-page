@@ -1,38 +1,232 @@
-.App {
-  text-align: center;
+:root {
+  --glass: rgba(255, 255, 255, 0.54);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+section {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh
 }
 
-.App-link {
-  color: #61dafb;
+form {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  background-color: var(--glass);
+  border-radius: 10px;
+  gap: 2rem;
+  padding: 3rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.formHeader {
+  text-align: left;
+  width: 100%;
+  color: darkslateblue;
+  font-size: larger;
+}
+
+.inputField {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.inputField .email {
+  width: 93%;
+}
+
+.inputField .password,
+.inputField .c_Password {
+  width: 45%;
+}
+
+.inputField .email>p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.inputField .email>input[type='email'],
+.inputField .password>input[type='password'],
+.inputField .c_Password>input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: transparent;
+  margin-top: 10px;
+  outline: none;
+  font-size: medium;
+  color: dimgrey;
+}
+
+/* .inputField .email>input::placeholder:active{
+  transform: scaleY(1);
+  display: none;
+}
+.inputField .email>input::placeholder:active,
+.inputField .password>input::placeholder,
+.inputField .c_Password>input::placeholder {
+transform: scaleY(1);
+} */
+
+.helpLinks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 93%;
+}
+
+.helpLinks .remember {
+  display: flex;
+  gap: 20px;
+}
+
+.btnCont {
+  display: flex;
+  flex-direction: column;
+  width: 93%;
+  gap: 15px
+}
+
+.btnCont .signIn,
+.btnCont .logIn {
+  padding: 8px;
+  border-radius: 10px;
+  border: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* error popup div */
+.error {
+  color: rgb(202, 52, 52);
+  position: absolute;
+  top: 32%;
+  left: 30%;
+  width: 40%;
+  text-align: center;
+  font-size: large;
+  font-weight:700
+}
+
+.passVal{
+  color:red;
+  width: 100%;
+}
+
+.remember .checkBox{
+  padding:1rem;
+}
+
+@media (max-width:1024px) {
+  section {
+    height: 100vh;
   }
-  to {
-    transform: rotate(360deg);
+
+  form {
+    padding: 1rem;
   }
+
+  .formHeader {
+    font-size: medium
+  }
+
+  .inputField {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .inputField .email>p {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .inputField .email>input[type='email'],
+  .inputField .password>input[type='password'],
+  .inputField .c_Password>input {
+    font-size: small;
+    font-weight: 500;
+  }
+
+  .inputField .email {
+    width: 100%;
+  }
+
+  .inputField .password,
+  .inputField .c_Password {
+    width: 48%;
+  }
+
+  .helpLinks {
+    width: 96%;
+  }
+
+  .helpLinks .remember {
+    display: flex;
+    gap: 15px;
+  }
+
+  .btnCont {
+    width: 100%;
+    gap: 15px
+  }
+
+  .btnCont .signIn,
+  .btnCont .logIn {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .error {
+    top: 25%;
+    left: 30%;
+  }
+
+}
+
+@media (max-width: 425px) {
+form {
+  gap: 1rem;
+  width: 80%;
+}
+
+.formHeader {
+  font-size: small
+}
+
+  .inputField {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .inputField .password,
+  .inputField .c_Password {
+    width: 100%;
+  }
+
+  .inputField .email>input::placeholder,
+.inputField .password>input::placeholder,
+.inputField .c_Password>input::placeholder{
+font-size:smaller;
+} 
+
+.helpLinks {
+  font-size: small;
+}
+
+.helpLinks .remember {
+  display: flex;
+  gap: 10px;
+}
+.error {
+  top: 24%;
+  left: 30%;
+  font-size: small;
+  width:fit-content;
+}
 }
