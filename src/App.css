@@ -10,7 +10,6 @@ section {
 }
 
 form {
-  /* position: relative; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,16 +60,6 @@ form {
   color: dimgrey;
 }
 
-/* .inputField .email>input::placeholder:active{
-  transform: scaleY(1);
-  display: none;
-}
-.inputField .email>input::placeholder:active,
-.inputField .password>input::placeholder,
-.inputField .c_Password>input::placeholder {
-transform: scaleY(1);
-} */
-
 .helpLinks {
   display: flex;
   align-items: center;
@@ -98,18 +87,6 @@ transform: scaleY(1);
   cursor: pointer;
   font-size: 18px;
   font-weight: 700;
-}
-
-/* error popup div */
-.error {
-  color: rgb(202, 52, 52);
-  position: absolute;
-  top: 32%;
-  left: 30%;
-  width: 40%;
-  text-align: center;
-  font-size: large;
-  font-weight:700
 }
 
 .passVal{

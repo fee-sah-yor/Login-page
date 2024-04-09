@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../App.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 export const FormErrorMessage = ({ children }) => {
   return <p className="passVal">*{children}</p>;
 };
 
 const SignUp = () => {
-
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -23,19 +23,27 @@ const SignUp = () => {
       password: Yup.string()
         .min(8, "password must be above 8 characters")
         .required("Required"),
-    confirm: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match').required('Required')
+      confirm: Yup.string()
+        .oneOf([Yup.ref("password"), null], "Passwords must match")
+        .required("Required"),
     }),
   });
 
-  if(!formik.errors){
-    console.log('succesful')
-  } 
+  // useEffect(() => {
+  //  if (formik.errors) {
+  //   console.log("errors");
+  // }
+  // },[formik.errors]);
 
   return (
     <div>
       <section>
-        <form onSubmit={(e) => {e.preventDefault();
-            formik.handleSubmit()}}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            formik.handleSubmit();
+          }}
+        >
           {/* Form header */}
 
           <div className="formHeader">
@@ -98,13 +106,19 @@ const SignUp = () => {
           </article>
 
           <article className="btnCont">
-            <button
-              className="signIn"
-              type="submit"
-            >
+            <button className="signIn" type="submit">
               Sign Up
             </button>
-            <button className="logIn">Log In</button>
+
+            <button className="logIn" disabled={!formik.handleSubmit}>
+              Log In
+              <Link
+                type="submit"
+                id="login"
+                to="/login"
+                className="logIn"
+              ></Link>
+            </button>
           </article>
         </form>
       </section>
