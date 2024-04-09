@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
+import React, {useState} from "react";
 import "../App.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import Login from './Login';
 
 export const FormErrorMessage = ({ children }) => {
   return <p className="passVal">*{children}</p>;
 };
 
 const SignUp = () => {
+  // STATE MANAGEMENT TO DISPLAY LOGIN
+  const [display, setDisplay] = useState(true)
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -16,7 +19,7 @@ const SignUp = () => {
       confirm: "",
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      console.log(values);
     },
     validationSchema: Yup.object({
       email: Yup.string().email("Invalid email address").required("Required"),
@@ -28,24 +31,26 @@ const SignUp = () => {
         .required("Required"),
     }),
   });
-
-  // useEffect(() => {
-  //  if (formik.errors) {
-  //   console.log("errors");
-  // }
-  // },[formik.errors]);
+  const btnClick = ()=>{
+    if(formik.isValid){
+      formik.resetForm()
+    } else {
+      return formik.errors
+    }
+  }
 
   return (
     <div>
+        {display ? (
       <section>
         <form
           onSubmit={(e) => {
             e.preventDefault();
             formik.handleSubmit();
+            btnClick()
           }}
         >
           {/* Form header */}
-
           <div className="formHeader">
             <h1>Sign Up</h1>
             <p>Log in with the data provided during your registeration</p>
@@ -58,7 +63,6 @@ const SignUp = () => {
               <input
                 type="email"
                 name="email"
-                required
                 placeholder="your email address"
                 {...formik.getFieldProps("email")}
               />
@@ -71,7 +75,6 @@ const SignUp = () => {
               <input
                 type="Password"
                 name="password"
-                required
                 placeholder="type your password"
                 {...formik.getFieldProps("password")}
               />
@@ -85,7 +88,6 @@ const SignUp = () => {
               <input
                 type="password"
                 name="confirm"
-                required
                 placeholder="re-enter your password"
                 {...formik.getFieldProps("confirm")}
               />
@@ -98,7 +100,7 @@ const SignUp = () => {
           <article className="helpLinks">
             <div className="remember">
               <input className="checkBox" type="checkbox" />
-              <p>Remember me?</p>
+              <p>Remember me</p>
             </div>
             <div className="forgot">
               <p>Forgot password?</p>
@@ -106,22 +108,18 @@ const SignUp = () => {
           </article>
 
           <article className="btnCont">
-            <button className="signIn" type="submit">
+            <button className="signIn" type="submit" disabled={!formik.isValid}>
               Sign Up
             </button>
 
-            <button className="logIn" disabled={!formik.handleSubmit}>
+            <button className="logIn"
+             onClick={() => setDisplay(false)}>
               Log In
-              <Link
-                type="submit"
-                id="login"
-                to="/login"
-                className="logIn"
-              ></Link>
-            </button>
+              </button>
           </article>
         </form>
       </section>
+       ): (<Login/>)}
     </div>
   );
 };

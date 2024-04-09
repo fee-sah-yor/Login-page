@@ -89,6 +89,11 @@ form {
   font-weight: 700;
 }
 
+.btnCont .logIn .link {
+  text-decoration: none;
+  color: black;
+}
+
 .passVal{
   color:red;
   width: 100%;
@@ -152,8 +157,8 @@ form {
     gap: 15px
   }
 
-  .btnCont .signIn,
-  .btnCont .logIn {
+  .btnCont .signIn, .btnCont .logIn
+  {
     font-size: 15px;
     font-weight: 700;
   }

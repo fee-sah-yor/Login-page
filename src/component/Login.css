@@ -1,0 +1,194 @@
+:root {
+  --glass: rgba(255, 255, 255, 0.54);
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  background-color: var(--glass);
+  border-radius: 10px;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.formHeader {
+  text-align: left;
+  width: 100%;
+  color: darkslateblue;
+  font-size: larger;
+}
+
+.inputFields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.inputFields .email,
+.inputFields .password {
+  width: 93%;
+}
+
+.inputFields .email > p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.inputFields .email > input[type="email"],
+.inputFields .password > input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: transparent;
+  margin-top: 10px;
+  outline: none;
+  font-size: medium;
+  color: dimgrey;
+}
+
+.helpLinks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 93%;
+}
+
+.helpLinks .remember {
+  display: flex;
+  gap: 20px;
+}
+
+.btnCont {
+  display: flex;
+  flex-direction: column;
+  width: 93%;
+  gap: 15px;
+}
+
+.btnCont .signIn,
+.btnCont .logIn {
+  padding: 8px;
+  border-radius: 10px;
+  border: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.btnCont .logIn .link {
+  text-decoration: none;
+  color: black;
+}
+
+.passVal {
+  color: red;
+  width: 100%;
+}
+
+.remember .checkBox {
+  padding: 1rem;
+}
+
+.account{
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+  section {
+    height: 100vh;
+  }
+
+  form {
+    padding: 1rem;
+  }
+
+  .formHeader {
+    font-size: medium;
+  }
+
+  .inputFields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .inputFields .email > p {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .inputFields .email > input[type="email"],
+  .inputFields .password > input[type="password"] {
+    font-size: small;
+    font-weight: 500;
+  }
+
+  .inputFields .email,
+  .inputFields .password {
+    width: 100%;
+  }
+
+  .helpLinks {
+    width: 96%;
+  }
+
+  .helpLinks .remember {
+    display: flex;
+    gap: 15px;
+  }
+
+  .btnCont {
+    width: 100%;
+    gap: 15px;
+  }
+
+  .btnCont .logIn {
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 425px) {
+  form {
+    gap: 1rem;
+    width: 80%;
+  }
+
+  .formHeader {
+    font-size: small;
+  }
+
+  .inputFields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .inputFields .password,
+  .inputFields .c_Password {
+    width: 100%;
+  }
+
+  .inputFields .email > input::placeholder,
+  .inputFields .password > input::placeholder {
+    font-size: smaller;
+  }
+
+  .helpLinks {
+    font-size: small;
+  }
+
+  .helpLinks .remember {
+    display: flex;
+    gap: 10px;
+  }
+}
