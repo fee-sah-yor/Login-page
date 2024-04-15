@@ -25,6 +25,7 @@ form {
   width: 100%;
   color: darkslateblue;
   font-size: larger;
+  overflow: hidden;
 }
 
 .inputField {
@@ -87,11 +88,14 @@ form {
   cursor: pointer;
   font-size: 18px;
   font-weight: 700;
+  background-color: white;
+  text-align: center;
 }
 
 .btnCont .logIn .link {
   text-decoration: none;
   color: black;
+  font-size: 18px;
 }
 
 .passVal{
@@ -161,6 +165,12 @@ form {
   {
     font-size: 15px;
     font-weight: 700;
+  }
+
+  .btnCont .logIn .link {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
   }
 
   .error {

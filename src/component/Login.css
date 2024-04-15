@@ -25,6 +25,7 @@ form {
   width: 100%;
   color: darkslateblue;
   font-size: larger;
+  overflow:hidden;
 }
 
 .inputFields {
@@ -155,6 +156,7 @@ form {
     font-size: 15px;
     font-weight: 700;
   }
+  
 }
 
 @media (max-width: 425px) {
